@@ -110,7 +110,7 @@ export default class Conta extends React.Component<Props>{
 		email: "",
 		token: "",
 		checked: '',
-		showSaldo:false
+		showSaldo: false
 
 
 	}
@@ -118,10 +118,10 @@ export default class Conta extends React.Component<Props>{
 	toggleSwitch() {
 		this.setState({ showSaldo: !this.state.showSaldo });
 		if (!this.state.showSaldo)
-		  this.setState({ ShowHide: 'Show' })
+			this.setState({ ShowHide: 'Show' })
 		else
-		  this.setState({ ShowHide: 'Hide' })
-	  }
+			this.setState({ ShowHide: 'Hide' })
+	}
 
 	setChecked(checked) {
 		this.setState({ checked });
@@ -185,8 +185,6 @@ export default class Conta extends React.Component<Props>{
 								},
 								token: token
 							}
-
-
 							contaService.buscaMoney({
 								dado: {
 									id: 1
@@ -416,7 +414,8 @@ export default class Conta extends React.Component<Props>{
 									<Text style={{ fontWeight: 'bold', width: '25%', textAlign: 'center' }}>{history.htg}</Text>
 								</View>
 							))}
-						</ScrollView> */}
+						</ScrollView> 
+						*/}
 
 						<View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 100 }}>
 
@@ -501,7 +500,7 @@ export default class Conta extends React.Component<Props>{
 					<View style={{ alignItems: 'center', height: '100%', backgroundColor: '#FFFFF0' }}>
 
 						<View style={{ backgroundColor: '#1E90FF', marginTop: 10, borderRadius: 10, height: 40, justifyContent: 'center' }}>
-							<Text style={{ color: 'white', fontWeight: 'bold' }}>  Comprovante de Pagamento  </Text>
+							<Text style={{ color: 'white', fontWeight: 'bold' }}> Comprovante de Pagamento </Text>
 						</View>
 
 						<View style={{ alignItems: 'flex-end', width: '100%', marginTop: -40 }}>
@@ -513,17 +512,16 @@ export default class Conta extends React.Component<Props>{
 						</View>
 
 						<View style={{ width: '100%', alignItems: 'center' }}>
-							<Text style={{ marginTop: 50, fontWeight: 'bold' }}>  Transfè de : $R {this.state.favNumber}</Text>
-							<Text style={{ marginTop: 50, fontWeight: 'bold' }}>  Valè an Goud : $ht {this.state.ValorEnGourdes}</Text>
-							<Text style={{ marginTop: 50, fontWeight: 'bold' }}> Nimero kap Resevwa  : {this.state.telefone}</Text>
+							<Text style={{ marginTop: 50, fontWeight: 'bold' }}> Transferência de : $R {this.state.favNumber}</Text>
+							<Text style={{ marginTop: 50, fontWeight: 'bold' }}> Valor em HTG : $ht {this.state.ValorEnGourdes}</Text>
+							<Text style={{ marginTop: 50, fontWeight: 'bold' }}> Numero para receber  : {this.state.telefone}</Text>
 
-							<Text style={{ marginTop: 50, fontWeight: 'bold' }}>  Dat {this.state.data}</Text>
+							<Text style={{ marginTop: 50, fontWeight: 'bold' }}>  Data {this.state.data}</Text>
 
 							<Text style={{ fontWeight: 'bold' }}>Whatsapp : 41 99831-8677</Text>
 							<Text style={{ fontWeight: 'bold' }}>E-mail: enfo.celissaintb@gmail.com </Text>
-							<Text style={{ fontWeight: 'bold' }}>Mèsi dèske ou Chwazi MonkashBrezil</Text>
+							<Text style={{ fontWeight: 'bold' }}>Obrigado por escolher HTbank.</Text>
 						</View>
-
 					</View>
 				</Modal>
 			</View>
@@ -628,7 +626,7 @@ export default class Conta extends React.Component<Props>{
 		if (this.state.favNumber * 1.0 <= this.state.conta.saldo * 1.0)
 			this.enviar(" MO");
 		else
-			Alert.alert('Ou pa gen ase lajan, rechaje kont ou silvouplè.')
+			Alert.alert('Saldo insuficiente, por favor fazer um recarga...')
 	}
 
 	confirmarEMinuto() {
@@ -645,9 +643,9 @@ export default class Conta extends React.Component<Props>{
 			if (this.state.favNumber * 1.0 <= this.state.conta.saldo * 1.0)
 				this.enviar(" MI");
 			else
-				Alert.alert('Ou pa gen ase lajan, rechaje kont ou silvouplè.')
+				Alert.alert('Saldo insuficiente, por favor fazer um recarga...')
 
-		} else Alert.alert("Silvouplè ranpli espas vid yo")
+		} else Alert.alert("Por favor preenche todos os campos...")
 
 
 	}
@@ -687,7 +685,7 @@ export default class Conta extends React.Component<Props>{
 				}
 			}).catch(err => Alert.alert(err.toString()));
 
-		} else Alert.alert("Silvouplè ranpli espas vid yo")
+		} else Alert.alert("Por favor preenche todos os campos...")
 	}
 
 	verHistory() {
@@ -734,7 +732,7 @@ export default class Conta extends React.Component<Props>{
 			let conta = {
 				dado: {
 					user_id: this.state.id,
-					nome: "Itilizatè",
+					nome: "Usuario",
 					saldo: this.state.favNumber,
 					estado: true,
 					tel: this.state.telefone + forma,
@@ -764,7 +762,7 @@ export default class Conta extends React.Component<Props>{
 
 
 		} else {
-			Alert.alert('Tanpri rampli tout espas vid yo');
+			Alert.alert('Por favor preenche todos os campos...');
 		}
 		this.setState({ ativarContar: false })
 	}
@@ -795,13 +793,13 @@ export default class Conta extends React.Component<Props>{
 						</View>
 
 						<View style={{ width: '100%', alignItems: 'center' }}>
-							<Text style={{ marginTop: 50, fontWeight: 'bold' }}>  Ou fè yon rechaj : $R {this.state.favNumber}</Text>
+							<Text style={{ marginTop: 50, fontWeight: 'bold' }}>  Você fez uma recarga de : $R {this.state.favNumber}</Text>
 
 
-							<Text style={{ marginTop: 10, fontWeight: 'bold' }}>Wap resevwa Boleto a sou Email ou ak Whatsapp ou.</Text>
+							<Text style={{ marginTop: 10, fontWeight: 'bold' }}>Você receberá o Boleto por email ou Whatsapp.</Text>
 							<Text style={{ fontWeight: 'bold' }}>Whatsapp : 41 99831-8677</Text>
 							<Text style={{ fontWeight: 'bold' }}>E-mail: enfo.monkach@gmail.com </Text>
-							<Text style={{ fontWeight: 'bold' }}>Mèsi dèske ou Chwazi MonkashAyiti</Text>
+							<Text style={{ fontWeight: 'bold' }}>Obrigado por ter escolhido HTbank.</Text>
 						</View>
 
 					</View>
@@ -836,12 +834,12 @@ export default class Conta extends React.Component<Props>{
 						</View>
 
 						<View style={{ width: '100%', alignItems: 'center' }}>
-							<Text style={{ marginTop: 50, fontWeight: 'bold' }}>  Ou fè yon rechaj : $R {this.state.favNumber}</Text>
+							<Text style={{ marginTop: 50, fontWeight: 'bold' }}> Você fez uma recarga de : $R {this.state.favNumber}</Text>
 
 							<Text style={{ marginTop: 10, fontWeight: 'bold' }}>Pix : CNPJ 45.255.245/1000-24.</Text>
 							<Text style={{ fontWeight: 'bold' }}>Whatsapp : 41 99831-8677</Text>
 							<Text style={{ fontWeight: 'bold' }}>E-mail: enfo.monkach@gmail.com </Text>
-							<Text style={{ fontWeight: 'bold' }}>Mèsi dèske ou Chwazi MonkashAyiti</Text>
+							<Text style={{ fontWeight: 'bold' }}>Obrigado por ter escolhido HTbank.</Text>
 						</View>
 
 					</View>
@@ -1008,19 +1006,19 @@ export default class Conta extends React.Component<Props>{
 									<Image source={Images.maleUser} style={{ width: 40, height: 40, }} />
 								</TouchableOpacity>
 								{
-								this.state.showSaldo ? (
-									<TouchableOpacity
-									onPress={() => this.toggleSwitch() }
-									style={[styles.centeredColumn, styles.centeredRow, styles.smallPaddingLeft, styles.smallPaddingRight]}>
-									<Image source={Images.show} style={{ width: 20, height: 20, }} />
-								</TouchableOpacity>
-								) : (<TouchableOpacity
-									onPress={() => this.toggleSwitch() }
-									style={[styles.centeredColumn, styles.centeredRow, styles.smallPaddingLeft, styles.smallPaddingRight]}>
-									<Image source={Images.hide} style={{ width: 20, height: 20, }} />
-								</TouchableOpacity>)
-							}
-							
+									this.state.showSaldo ? (
+										<TouchableOpacity
+											onPress={() => this.toggleSwitch()}
+											style={[styles.centeredColumn, styles.centeredRow, styles.smallPaddingLeft, styles.smallPaddingRight]}>
+											<Image source={Images.show} style={{ width: 20, height: 20, }} />
+										</TouchableOpacity>
+									) : (<TouchableOpacity
+										onPress={() => this.toggleSwitch()}
+										style={[styles.centeredColumn, styles.centeredRow, styles.smallPaddingLeft, styles.smallPaddingRight]}>
+										<Image source={Images.hide} style={{ width: 20, height: 20, }} />
+									</TouchableOpacity>)
+								}
+
 
 								<TouchableOpacity
 									onPress={() => this.props.navigation.goBack()}
@@ -1055,12 +1053,12 @@ export default class Conta extends React.Component<Props>{
 							{/* {this.modalPaymentSalesman()} */}
 						</View>
 						<Text style={styles.textValue}>Saldo em Reias </Text>
-						
+
 						{
-								this.state.showSaldo ? (
-									<Text style={styles.textValue}>R$ ***** </Text>
-								) : (<Text style={styles.textValue}>R$ {this.state.conta.saldo} </Text>)
-							}
+							this.state.showSaldo ? (
+								<Text style={styles.textValue}>R$ ***** </Text>
+							) : (<Text style={styles.textValue}>R$ {this.state.conta.saldo} </Text>)
+						}
 						<View style={styles.bodyView}>
 
 							{/* {
@@ -1210,27 +1208,27 @@ export default class Conta extends React.Component<Props>{
 
 							{this.state.enviarRecarga ? (
 
-								<View style={{  borderRadius: 4, marginTop: 10, width: '100%' }}>
+								<View style={{ borderRadius: 4, marginTop: 10, width: '100%' }}>
 									<View style={[styles.titleBar, { alignItems: 'center' }]}>
 										<Text style={{ fontSize: 22, color: 'white', textAlign: 'center' }} > Transferência MonCach  </Text>
 									</View>
 
 									<TextInput
-										label='Nimewo Telefòn'
+										label='Numero do Telefone'
 										value={this.state.telefone}
 										onChangeText={telefone => this.setState({ telefone })}
 										keyboardType={'numeric'}
 									/>
 
 									<TextInput
-										label='Montan'
+										label='Valor em reais'
 										//value={this.state.favNumber}
 										onChangeText={favNumber => this.calularTaxa(favNumber)}
 										keyboardType={'numeric'}
 									/>
 
 									<TextInput
-										label='Montan en Goud'
+										label='Valor em HTG'
 										value={this.state.ValorEnGourdes}
 										keyboardType={'numeric'}
 										editable={false}
@@ -1279,14 +1277,14 @@ export default class Conta extends React.Component<Props>{
 									</View>
 
 									<TextInput
-										label='Nimewo Telefòn'
+										label='Numero do telefone.'
 										value={this.state.telefone}
 										onChangeText={telefone => this.setState({ telefone })}
 										keyboardType={'numeric'}
 									/>
 
 									<TextInput
-										label='Montan'
+										label='Valor em reais.'
 										value={this.state.favNumber.toString()}
 										onChangeText={favNumber => this.calularTaxaMinuto(favNumber)}
 										keyboardType={'numeric'}
@@ -1294,7 +1292,7 @@ export default class Conta extends React.Component<Props>{
 									/>
 
 									<TextInput
-										label='Montan en Goud'
+										label='Valor em HTG'
 										value={this.state.ValorEnGourdes}
 										keyboardType={'numeric'}
 										editable={false}
@@ -1418,14 +1416,14 @@ export default class Conta extends React.Component<Props>{
 							{this.modalPayment()}
 							{this.modalBoleto()}
 							{/* {this.modalPaymentSalesman()} */}
-							<Text style={styles.textValue}> Byenveni nan Monkach </Text>
-							<Text style={styles.textValue}>Balans : 00,00 R$</Text>
+							<Text style={styles.textValue}> Bem vindo na HTbank</Text>
+							<Text style={styles.textValue}>Saldo : 00,00 R$</Text>
 						</View>
 
-						<Text style={styles.textValue}>Kont dezaktive </Text>
+						<Text style={styles.textValue}>Conta desativada</Text>
 
 						<View style={{ backgroundColor: '#4ebdad', width: 250, marginBottom: 20, marginTop: 20, borderRadius: 10 }}>
-							<Text style={{ textAlign: 'center' }}>Pou ou aktive kont ou, fòk ou fè yon rechaj.</Text>
+							<Text style={{ textAlign: 'center' }}>Para ativar a sua conta é necessario pazer uma recarga.</Text>
 						</View>
 						{
 							this.state.ativarContar ? (
@@ -1437,7 +1435,7 @@ export default class Conta extends React.Component<Props>{
 											style={{ backgroundColor: '#0205E1', borderRadius: 4, marginTop: 10 }} >
 											<Text style={{ fontSize: 22, color: 'white' }} > Ativa sua Conta </Text>
 										</TouchableOpacity> */}
-										<Text style={{ fontSize: 22, color: 'white' }} > Ative  </Text>
+										<Text style={{ fontSize: 22, color: 'white' }} > Ativação  </Text>
 									</View>
 
 									<TextInput
@@ -1448,15 +1446,42 @@ export default class Conta extends React.Component<Props>{
 									/>
 
 									<TextInput
-										label='Montan'
+										label='Valor em reais.'
 										//value={this.state.favNumber}
 										onChangeText={favNumber => this.setState({ favNumber })}
 										keyboardType={'numeric'}
 									/>
 
-									{this.selectRNU()}
+									{/* {this.selectRNU()} */}
 
-									<View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+									<View style={{ backgroundColor: '#fff8dc' }}>
+										<View style={{ flexDirection: "row", alignItems: 'center', marginLeft: 15, width: 100, justifyContent: 'space-between' }}>
+											<Text>Boleto</Text>
+											<RadioButton
+												value="Boleto"
+												status={this.state.checked === 'Boleto' ? 'checked' : 'unchecked'}
+												onPress={() => this.setChecked('Boleto')}
+											/>
+										</View>
+										<View style={{ flexDirection: "row", alignItems: 'center', marginLeft: 15, width: 100, justifyContent: 'space-between' }}>
+											<Text>Pix</Text>
+											<RadioButton
+												value="Pix"
+												status={this.state.checked === 'Pix' ? 'checked' : 'unchecked'}
+												onPress={() => this.setChecked('Pix')}
+											/>
+										</View>
+										<View style={{ flexDirection: "row", alignItems: 'center', marginLeft: 15, width: 100, justifyContent: 'space-between' }}>
+											<Text>Deposito</Text>
+											<RadioButton
+												value="Deposito"
+												status={this.state.checked === 'Deposito' ? 'checked' : 'unchecked'}
+												onPress={() => this.setChecked('Deposito')}
+											/>
+										</View>
+									</View>
+
+									{/* <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
 
 										<TouchableOpacity
 											onPress={() => this.ativarContar(!this.state.ativarContar)}
@@ -1469,6 +1494,24 @@ export default class Conta extends React.Component<Props>{
 											style={{ backgroundColor: 'green', borderRadius: 4, marginTop: 10, padding: 5 }} >
 											<Text style={{ fontSize: 22, color: 'white' }} > Kofime</Text>
 										</TouchableOpacity>
+									</View> */}
+
+
+
+									<View style={[styles.titleBar, { height: 200 }]}>
+
+										<TouchableOpacity onPress={() => this.confirmarCtiva()}>
+											<View style={styles.buttonView}>
+												<Text style={{ fontWeight: 'bold' }}>FINALIZAR</Text>
+											</View>
+										</TouchableOpacity>
+
+										<TouchableOpacity onPress={() => this.ativarContar(!this.state.ativarContar)}>
+											<View style={styles.buttonView}>
+												<Text style={{ fontWeight: 'bold' }}>CANCELAR</Text>
+											</View>
+										</TouchableOpacity>
+
 									</View>
 
 								</View>
@@ -1485,7 +1528,7 @@ export default class Conta extends React.Component<Props>{
 											<View>
 												<TouchableOpacity onPress={() => this.ativarContar(!this.state.ativarContar)}>
 													<Text style={{ marginBottom: '20%' }} >
-														<Text style={{ fontWeight: 'bold', color: 'green' }}>Ative kont ou</Text>
+														<Text style={{ fontWeight: 'bold', color: 'green' }}>Ativa a sua Conta</Text>
 													</Text>
 												</TouchableOpacity>
 											</View>
@@ -1503,4 +1546,5 @@ export default class Conta extends React.Component<Props>{
 }
 
 // https://blog.logrocket.com/implementing-in-app-purchases-in-react-native/
+
 
